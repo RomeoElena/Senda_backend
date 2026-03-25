@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const conectarDB = require("./config/db");
 const prendasRoutes = require("./routes/prendas");
+const outfitsRoutes = require("./routes/outfits");
 
 const app = express();
 
@@ -13,7 +14,9 @@ conectarDB();
 app.use(cors());
 app.use(express.json());
 
+// Rutas
 app.use("/api/prendas", prendasRoutes);
+app.use("/api/outfits", outfitsRoutes); // Usar
 
 // Ruta de prueba
 app.get("/", (req, res) => res.send("API de Senda funcionando"));
