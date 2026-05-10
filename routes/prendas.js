@@ -24,6 +24,7 @@ router.post("/", uploadCloud.single("imagen"), async (req, res) => {
     const prendaGuardada = await nuevaPrenda.save();
     res.status(201).json(prendaGuardada);
   } catch (error) {
+    console.error("DETALLE DEL ERROR:", error);
     res.status(400).json({
       mensaje: "Error al guardar la prenda con imagen",
       error: error.message,

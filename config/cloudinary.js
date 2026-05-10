@@ -11,8 +11,9 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: "senda_armario",
-    allowed_formats: ["jpg", "png", "jpeg"],
+    folder: "senda_test",
+    format: async (req, file) => "jpg",
+    public_id: (req, file) => file.fieldname + "-" + Date.now(),
   },
 });
 
