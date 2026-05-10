@@ -53,7 +53,7 @@ router.put("/:id", async (req, res) => {
     const outfitActualizado = await Outfit.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true, runValidators: true },
+      { returnDocument: "after", runValidators: true },
     ).populate("prendas");
 
     res.json(outfitActualizado);
