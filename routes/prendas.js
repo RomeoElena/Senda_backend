@@ -90,7 +90,7 @@ router.put("/:id", uploadCloud.single("imagen"), async (req, res) => {
     const prendaActualizada = await Prenda.findByIdAndUpdate(
       req.params.id,
       datosActualizados,
-      { new: true, runValidators: true },
+      { returnDocument: "after", runValidators: true },
     );
 
     res.json(prendaActualizada);
